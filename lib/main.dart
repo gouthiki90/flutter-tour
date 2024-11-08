@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
+class Player {
+  // name을 가질 수도 아닐 수도 있음
+  // 해당 여부로 필수 파라미터 여부를 알 수 있음
+  String? name;
+
+  Player({required this.name});
+}
+
 void main() {
+  // named parameter
+  var nico = Player(name: "nico");
   runApp(App());
 }
 
