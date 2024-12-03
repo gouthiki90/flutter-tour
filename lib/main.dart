@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:welcome_flutter/widget/button.dart';
+import 'package:welcome_flutter/widget/currency_card.dart';
 
 // 컴파일하기 전에 이미 알고 있는 값. 컴파일 시 variable를 대치한다.
 const taxAmount = 15;
@@ -33,168 +34,135 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           backgroundColor: const Color(0xFF181818),
-          body: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Text(
-                          'Hey, Selena',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 28,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Text('Welcome back',
-                            style: TextStyle(
-                                color: Colors.white.withOpacity(0.8),
-                                fontSize: 18)),
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                // 전구(코드 액션)으로 위젯으로 감싸거나 풀기 등의 액션을 자동으로 할 수 있다.
-                // command + .으로 가능
-                Text(
-                  'Total Balance',
-                  style: TextStyle(
-                    fontSize: 22,
-                    color: Colors.white.withOpacity(0.8),
+          body: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  '\$5 194 487',
-                  style: TextStyle(
-                    fontSize: 44,
-                    color: Colors.white.withOpacity(0.8),
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    // 커스텀 위젯 중복 위젯 방지
-                    Button(
-                      text: 'Transfer',
-                      bgcolor: Color(0xFFF1B338),
-                      textcolor: Colors.black,
-                    ),
-                    Button(
-                      text: 'Request',
-                      bgcolor: Color(0xFF1F2123),
-                      textcolor: Colors.white,
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 100,
-                ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Wallests',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 36,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    Text(
-                      'View All',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                    // overflow일 때 튀어나온 부분을 어떻게 처리할지 정함
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF1F2123),
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Euro',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                children: [
-                                  const Text(
-                                    '6 428',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text('EUR',
-                                      style: TextStyle(
-                                        color: Colors.white.withOpacity(0.8),
-                                        fontSize: 18,
-                                      )),
-                                ],
-                              )
-                            ],
-                          ),
-                          // overflowing 크기 변경
-                          Transform.scale(
-                            scale: 2.2,
-                            // 좌표 변경
-                            child: Transform.translate(
-                              offset: const Offset(-5, 12),
-                              child: const Icon(
-                                Icons.euro_rounded,
-                                color: Colors.white,
-                                size: 88,
-                              ),
+                          const Text(
+                            'Hey, Selena',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.w600,
                             ),
-                          )
+                          ),
+                          Text('Welcome back',
+                              style: TextStyle(
+                                  color: Colors.white.withOpacity(0.8),
+                                  fontSize: 18)),
                         ],
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  // 전구(코드 액션)으로 위젯으로 감싸거나 풀기 등의 액션을 자동으로 할 수 있다.
+                  // command + .으로 가능
+                  Text(
+                    'Total Balance',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.white.withOpacity(0.8),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    '\$5 194 487',
+                    style: TextStyle(
+                      fontSize: 44,
+                      color: Colors.white.withOpacity(0.8),
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // 커스텀 위젯 중복 위젯 방지
+                      Button(
+                        text: 'Transfer',
+                        bgcolor: Color(0xFFF1B338),
+                        textcolor: Colors.black,
                       ),
-                    ))
-              ],
+                      Button(
+                        text: 'Request',
+                        bgcolor: Color(0xFF1F2123),
+                        textcolor: Colors.white,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Wallests',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 36,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      Text(
+                        'View All',
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.8),
+                          fontSize: 18,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const CurrencyCard(
+                    name: 'Euro',
+                    code: 'EUR',
+                    amount: '6 428',
+                    icon: Icons.euro_rounded,
+                    isInverted: false,
+                  ),
+                  Transform.translate(
+                    offset: const Offset(0, -20),
+                    child: const CurrencyCard(
+                      name: 'Bitcoin',
+                      code: 'BTC',
+                      amount: '9 785',
+                      icon: Icons.currency_bitcoin_rounded,
+                      isInverted: true,
+                    ),
+                  ),
+                  Transform.translate(
+                    offset: const Offset(0, -40),
+                    child: const CurrencyCard(
+                      name: 'Rupee',
+                      code: 'INR',
+                      amount: '29 981',
+                      icon: Icons.attach_money,
+                      isInverted: false,
+                    ),
+                  ),
+                ],
+              ),
             ),
           )),
     );
