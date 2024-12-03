@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+// 컴파일하기 전에 이미 알고 있는 값. 컴파일 시 variable를 대치한다.
+const taxAmount = 15;
+const priceAmount = 30;
+
 class Player {
   // name을 가질 수도 아닐 수도 있음
   // 해당 여부로 필수 파라미터 여부를 알 수 있음
@@ -11,7 +15,7 @@ class Player {
 void main() {
   // named parameter
   var nico = Player(name: "nico");
-  runApp(App());
+  runApp(const App());
 }
 
 // widget을 만들기 위해서는 flutter의 sdk에 있는 3개의 core widget 중에 하나를 상속 받아야 한다.
@@ -20,18 +24,20 @@ void main() {
 // 1. meterial wiget을 return(구글)
 // 2. cupertino wiget을 return(ios)
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     // 시작점을 세팅해야 한다.
     return MaterialApp(
       home: Scaffold(
-          backgroundColor: Color(0xFF181818),
+          backgroundColor: const Color(0xFF181818),
           body: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Row(
@@ -40,7 +46,7 @@ class App extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text(
+                        const Text(
                           'Hey, Selena',
                           style: TextStyle(
                             color: Colors.white,
@@ -56,7 +62,7 @@ class App extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 120,
                 ),
                 Text(
@@ -66,7 +72,7 @@ class App extends StatelessWidget {
                     color: Colors.white.withOpacity(0.8),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(
@@ -77,7 +83,7 @@ class App extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -87,7 +93,7 @@ class App extends StatelessWidget {
                         color: Colors.amber,
                         borderRadius: BorderRadius.circular(45),
                       ),
-                      child: Padding(
+                      child: const Padding(
                         padding: EdgeInsets.symmetric(
                           vertical: 20,
                           horizontal: 50,
