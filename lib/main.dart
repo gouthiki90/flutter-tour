@@ -39,7 +39,7 @@ class App extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
-                  height: 50,
+                  height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -64,7 +64,7 @@ class App extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 120,
+                  height: 30,
                 ),
                 // 전구(코드 액션)으로 위젯으로 감싸거나 풀기 등의 액션을 자동으로 할 수 있다.
                 // command + .으로 가능
@@ -105,6 +105,79 @@ class App extends StatelessWidget {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 100,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Wallests',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      'View All',
+                      style: TextStyle(
+                        color: Colors.white.withOpacity(0.8),
+                        fontSize: 18,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF1F2123),
+                      borderRadius: BorderRadius.circular(25),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Row(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Euro',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 32,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  const Text(
+                                    '6 428',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text('EUR',
+                                      style: TextStyle(
+                                        color: Colors.white.withOpacity(0.8),
+                                        fontSize: 18,
+                                      )),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ))
               ],
             ),
           )),
