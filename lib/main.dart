@@ -65,6 +65,8 @@ class App extends StatelessWidget {
                 const SizedBox(
                   height: 120,
                 ),
+                // 전구(코드 액션)으로 위젯으로 감싸거나 풀기 등의 액션을 자동으로 할 수 있다.
+                // command + .으로 가능
                 Text(
                   'Total Balance',
                   style: TextStyle(
