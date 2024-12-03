@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:welcome_flutter/widget/button.dart';
 
 // 컴파일하기 전에 이미 알고 있는 값. 컴파일 시 variable를 대치한다.
 const taxAmount = 15;
@@ -88,23 +89,19 @@ class App extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.amber,
-                        borderRadius: BorderRadius.circular(45),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 20,
-                          horizontal: 50,
-                        ),
-                        child: Text(
-                          'Transfer',
-                          style: TextStyle(fontSize: 22),
-                        ),
-                      ),
+                    // 커스텀 위젯 중복 위젯 방지
+                    Button(
+                      text: 'Transfer',
+                      bgcolor: Color(0xFFF1B338),
+                      textcolor: Colors.black,
+                    ),
+                    Button(
+                      text: 'Request',
+                      bgcolor: Color(0xFF1F2123),
+                      textcolor: Colors.white,
                     ),
                   ],
                 ),
