@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// stateless 위젯은 빌드 메서드를 통해서 UI를 구현한다.
+// statefull 위젯은 실시간으로 데이터 변화를 가지고 있는 UI 구현 위젯이다.
 class Button extends StatelessWidget {
   final String text;
   final Color bgcolor;
