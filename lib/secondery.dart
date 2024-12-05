@@ -29,34 +29,47 @@ class _MyWidgetState extends State<MyWidget> {
   }
 
   @override
+  // context에는 위젯트리의 데이터가 담겨있다.
+  // 위젯트리에서 부모 요소에 접근할 수 있도록 한다.
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ),
+      home: const Scaffold(
         backgroundColor: Colors.white,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Click Count',
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-              Text(
-                '$counter',
-                style: const TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-              for (var n in numbers) Text('$n'),
-              IconButton(
-                onPressed: onClicked,
-                icon: const Icon(Icons.add_box_rounded),
-              )
+              MyLargeTitle(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+// 빌드 컨텍스트와 연결할 수 있도록 할 것이다.
+// material app이란 부모와 연결할 수 있도록 한다.
+class MyLargeTitle extends StatelessWidget {
+  const MyLargeTitle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'My Large Title',
+      style: TextStyle(
+        fontSize: 30,
+        // null값이 나올 수 있다는 nullsafety 때문에 ?를 붙여주고 const를 지웠다.
+        color: Theme.of(context).textTheme.titleLarge?.color,
       ),
     );
   }
