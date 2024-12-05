@@ -12,6 +12,14 @@ void main() {
 }
 
 class _MyWidgetState extends State<MyWidget> {
+  bool showTitle = true;
+
+  void toggleTitle() {
+    setState(() {
+      showTitle = !showTitle;
+    });
+  }
+
   // state data
   int counter = 0;
 
@@ -40,13 +48,16 @@ class _MyWidgetState extends State<MyWidget> {
           ),
         ),
       ),
-      home: const Scaffold(
+      home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              MyLargeTitle(),
+              showTitle ? const MyLargeTitle() : const Text('nothing'),
+              IconButton(
+                  onPressed: toggleTitle,
+                  icon: const Icon(Icons.remove_red_eye))
             ],
           ),
         ),
@@ -57,13 +68,34 @@ class _MyWidgetState extends State<MyWidget> {
 
 // 빌드 컨텍스트와 연결할 수 있도록 할 것이다.
 // material app이란 부모와 연결할 수 있도록 한다.
-class MyLargeTitle extends StatelessWidget {
+class MyLargeTitle extends StatefulWidget {
   const MyLargeTitle({
     super.key,
   });
 
   @override
+  State<MyLargeTitle> createState() => _MyLargeTitleState();
+}
+
+class _MyLargeTitleState extends State<MyLargeTitle> {
+// state를 초기화한다.
+  @override
+  void initState() {
+    super.initState();
+    // build 전에 실행된다.
+    print('initState!');
+  }
+
+// 위젯이 화면에 사라질 때 실행된다.
+  @override
+  void dispose() {
+    super.dispose();
+    print('dispose!');
+  }
+
+  @override
   Widget build(BuildContext context) {
+    print('build!');
     return Text(
       'My Large Title',
       style: TextStyle(
